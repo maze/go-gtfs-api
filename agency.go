@@ -5,12 +5,12 @@ import (
 )
 
 type Agency struct {
-	AgencyId       string `field:"agency_id"`
-	AgencyName     string `field:"agency_name"`
-	AgencyURL      string `field:"agency_url"`
-	AgencyTimezone string `field:"agency_timezone"`
-	AgencyLang     string `field:"agency_lang"`
-	AgencyPhone    string `field:"agency_phone"`
+	AgencyId string `field:"agency_id"`
+	Name     string `field:"agency_name"`
+	URL      string `field:"agency_url"`
+	Timezone string `field:"agency_timezone"`
+	Lang     string `field:"agency_lang"`
+	Phone    string `field:"agency_phone"`
 }
 
 const AgencyCollection = `agency`
