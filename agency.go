@@ -60,6 +60,26 @@ func (self *AgencyApi) List() ([]Agency, error) {
 	return self.query(nil)
 }
 
+func (self *AgencyApi) Get(AgencyId string) (*Agency, error) {
+
+	q, err := self.C.Query(db.Cond{
+		"agency_id": AgencyId,
+	})
+
+	if err != nil {
+		return nil, err
+	}
+
+	agency := Agency{}
+
+	err = q.One(&agency)
+	if err != nil {
+		return nil, err
+	}
+
+	return &agency, nil
+}
+
 func (self *AgencyApi) query(conds ...interface{}) ([]Agency, error) {
 
 	var agencies []Agency

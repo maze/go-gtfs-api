@@ -36,6 +36,16 @@ func TestList(t *testing.T) {
 	}
 }
 
+func TestGet(t *testing.T) {
+	found, err := api.Get("MB")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	if found == nil {
+		t.Fatalf(`Expecting some rows.`)
+	}
+}
+
 func TestSearch(t *testing.T) {
 	all, err := api.Search(`metro`)
 	if err != nil {
