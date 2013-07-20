@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-var api *FrequenciesApi
+var frequenciesApi *FrequenciesApi
 
-func TestConnect(t *testing.T) {
+func TestFrequenciesConnect(t *testing.T) {
 
 	sess, err := getDatabase()
 
@@ -19,15 +19,15 @@ func TestConnect(t *testing.T) {
 		t.Fatalf(err.Error())
 	}
 
-	api = &FrequenciesApi{
+	frequenciesApi = &FrequenciesApi{
 		DB: sess,
 		C:  col,
 	}
 
 }
 
-func TestList(t *testing.T) {
-	all, err := api.List("36237")
+func TestFrequenciesList(t *testing.T) {
+	all, err := frequenciesApi.List("36237")
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -36,8 +36,8 @@ func TestList(t *testing.T) {
 	}
 }
 
-func TestGetById(t *testing.T) {
-	found, err := api.Get("36237")
+func TestFrequenciesGetById(t *testing.T) {
+	found, err := frequenciesApi.Get("36237")
 
 	if err != nil {
 		t.Fatalf(err.Error())

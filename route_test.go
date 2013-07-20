@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-var api *RouteApi
+var routesApi *RouteApi
 
-func TestConnect(t *testing.T) {
+func TestRoutesConnect(t *testing.T) {
 
 	sess, err := getDatabase()
 
@@ -19,15 +19,15 @@ func TestConnect(t *testing.T) {
 		t.Fatalf(err.Error())
 	}
 
-	api = &RouteApi{
+	routesApi = &RouteApi{
 		DB: sess,
 		C:  col,
 	}
 
 }
 
-func TestList(t *testing.T) {
-	all, err := api.List("MB")
+func TestRoutesList(t *testing.T) {
+	all, err := routesApi.List("MB")
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -36,8 +36,8 @@ func TestList(t *testing.T) {
 	}
 }
 
-func TestGetById(t *testing.T) {
-	found, err := api.Get("ROUTE_18226")
+func TestRoutesGetById(t *testing.T) {
+	found, err := routesApi.Get("ROUTE_18226")
 
 	if err != nil {
 		t.Fatalf(err.Error())

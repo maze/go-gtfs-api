@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-var api *CalendarApi
+var calendarApi *CalendarApi
 
-func TestConnect(t *testing.T) {
+func TestCalendarConnect(t *testing.T) {
 
 	sess, err := getDatabase()
 
@@ -19,15 +19,15 @@ func TestConnect(t *testing.T) {
 		t.Fatalf(err.Error())
 	}
 
-	api = &CalendarApi{
+	calendarApi = &CalendarApi{
 		DB: sess,
 		C:  col,
 	}
 
 }
 
-func TestList(t *testing.T) {
-	all, err := api.List("36238")
+func TestCalendarList(t *testing.T) {
+	all, err := calendarApi.List("36238")
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -36,8 +36,8 @@ func TestList(t *testing.T) {
 	}
 }
 
-func TestGetById(t *testing.T) {
-	found, err := api.Get("36238")
+func TestCalendarGetById(t *testing.T) {
+	found, err := calendarApi.Get("36238")
 
 	if err != nil {
 		t.Fatalf(err.Error())

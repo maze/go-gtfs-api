@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-var api *TripApi
+var tripApi *TripApi
 
-func TestConnect(t *testing.T) {
+func TestTripConnect(t *testing.T) {
 
 	sess, err := getDatabase()
 
@@ -19,15 +19,15 @@ func TestConnect(t *testing.T) {
 		t.Fatalf(err.Error())
 	}
 
-	api = &TripApi{
+	tripApi = &TripApi{
 		DB: sess,
 		C:  col,
 	}
 
 }
 
-func TestList(t *testing.T) {
-	all, err := api.List("ROUTE_18226")
+func TestTripList(t *testing.T) {
+	all, err := tripApi.List("ROUTE_18226")
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -36,8 +36,8 @@ func TestList(t *testing.T) {
 	}
 }
 
-func TestGetById(t *testing.T) {
-	found, err := api.Get("38834")
+func TestTripGetById(t *testing.T) {
+	found, err := tripApi.Get("38834")
 
 	if err != nil {
 		t.Fatalf(err.Error())

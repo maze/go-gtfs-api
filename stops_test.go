@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-var api *StopApi
+var stopsApi *StopApi
 
-func TestConnect(t *testing.T) {
+func TestStopsConnect(t *testing.T) {
 
 	sess, err := getDatabase()
 
@@ -19,15 +19,15 @@ func TestConnect(t *testing.T) {
 		t.Fatalf(err.Error())
 	}
 
-	api = &StopApi{
+	stopsApi = &StopApi{
 		DB: sess,
 		C:  col,
 	}
 
 }
 
-func TestGetById(t *testing.T) {
-	found, err := api.Get("STOP_14877")
+func TestStopsGetById(t *testing.T) {
+	found, err := stopsApi.Get("STOP_14877")
 
 	if err != nil {
 		t.Fatalf(err.Error())

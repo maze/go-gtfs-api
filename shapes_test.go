@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-var api *ShapeApi
+var shapesApi *ShapeApi
 
-func TestConnect(t *testing.T) {
+func TestShapesConnect(t *testing.T) {
 
 	sess, err := getDatabase()
 
@@ -19,15 +19,15 @@ func TestConnect(t *testing.T) {
 		t.Fatalf(err.Error())
 	}
 
-	api = &ShapeApi{
+	shapesApi = &ShapeApi{
 		DB: sess,
 		C:  col,
 	}
 
 }
 
-func TestList(t *testing.T) {
-	all, err := api.List("36477")
+func TestShapesList(t *testing.T) {
+	all, err := shapesApi.List("36477")
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
