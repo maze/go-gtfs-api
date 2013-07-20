@@ -1,0 +1,15 @@
+{
+	"type" : "jdbc",
+	"jdbc" : {
+		"driver" : "org.postgresql.Driver",
+		"url" : "jdbc:postgresql://localhost:5432/df_gtfs?characterEncoding=utf8",
+		"user" : "df_gtfs",
+		"password" : "df_gtfs",
+		"sql": "SELECT * FROM agency"
+	},
+	"index" : {
+		"index": "gtfs_agency",
+		"name": "agency_name",
+		"type": "agency_name"
+	}
+}

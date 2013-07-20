@@ -1,0 +1,26 @@
+{
+	"settings": {
+		"index": {
+			"analysis": {
+				"analyzer": {
+					"analyzer_ascii_normalize": {
+						"tokenizer": "lowercase",
+						"filter": "asciifolding"
+					}
+				}
+			}
+		}
+	},
+	"mappings": {
+		"ascii_normalize": {
+			"properties": {
+				"agency_name": {
+					"store": "yes",
+					"search_analyzer": "analyzer_ascii_normalize",
+					"index_analyzer": "analyzer_ascii_normalize",
+					"type": "string"
+				}
+			}
+		}
+	}
+}

@@ -35,3 +35,13 @@ func TestList(t *testing.T) {
 		t.Fatalf(`Expecting some rows.`)
 	}
 }
+
+func TestSearch(t *testing.T) {
+	all, err := api.Search(`metro`)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	if len(all) == 0 {
+		t.Fatalf(`Expecting some rows.`)
+	}
+}
