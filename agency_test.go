@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-var api *AgencyApi
+var agencyApi *AgencyApi
 
-func TestConnect(t *testing.T) {
+func TestAgencyConnect(t *testing.T) {
 
 	sess, err := getDatabase()
 
@@ -19,15 +19,15 @@ func TestConnect(t *testing.T) {
 		t.Fatalf(err.Error())
 	}
 
-	api = &AgencyApi{
+	agencyApi = &AgencyApi{
 		DB: sess,
 		C:  col,
 	}
 
 }
 
-func TestList(t *testing.T) {
-	all, err := api.List()
+func TestAgencyList(t *testing.T) {
+	all, err := agencyApi.List()
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -36,8 +36,8 @@ func TestList(t *testing.T) {
 	}
 }
 
-func TestGet(t *testing.T) {
-	found, err := api.Get("MB")
+func TestAgencyGet(t *testing.T) {
+	found, err := agencyApi.Get("MB")
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -46,8 +46,8 @@ func TestGet(t *testing.T) {
 	}
 }
 
-func TestSearch(t *testing.T) {
-	all, err := api.Search(`metro`)
+func TestAgencySearch(t *testing.T) {
+	all, err := agencyApi.Search(`metro`)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

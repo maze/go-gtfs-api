@@ -23,6 +23,15 @@ type AgencyApi struct {
 	DB db.Database
 }
 
+func NewAgencyContext(sess db.Database) *AgencyApi {
+	col, err := sess.Collection(AgencyCollection)
+	if err != nil {
+		panic(err.Error())
+	}
+	ctx := AgencyApi{DB: sess, C: col}
+	return &ctx
+}
+
 func (self *AgencyApi) Search(query string) ([]Agency, error) {
 
 	req := map[string]interface{}{
